@@ -66,8 +66,11 @@ public class World
 
     public void createWorld()
     {
-        allNations.add(new Nation("Idiots", (worldLifePoints / 2)));
-        allNations.add(new Nation("Minions", (worldLifePoints) / 2));
+        // add Nations participating in the game to nations ArrayList.
+        String[] nationNames = {"Smilons", "Naveed", "Perez", "Toyberg"};
+        for(String name : nationNames){
+            allNations.add(new Nation(name, worldLifePoints / nationNames.length));
+        }
     }
 
 
