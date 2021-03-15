@@ -21,35 +21,52 @@ public class Tribe
         nationName = nation;
         tribeName = tribe;
         tribeLifePoints = lifePoints;
-        for(int i = 0; i < 5; i++)
-            addPlayersToNation(nationName);
+        for(int i = 0; i < 5; i++) {
+            if (nationName.equals("Naveed")) {
+                addPlayersNaveedNation();
+            }
+            if (nationName.equals("Toyberg"))
+            {
+                addPlayersToybergNation();
+            }
+            if(nationName.equals("Perez"))
+            {
+                addPlayersPerezNation();
+            }
+            if(nationName.equals("Smilons"))
+            {
+                addPlayersSmilonsNation();
+            }
+        }
         for(int i = 0; i < members.size(); i++)
             livingMembers.addAll(members);
     }
 
-    private void addPlayersToNation(String nationName)
+    private void addPlayersNaveedNation()
     {
-        if(nationName.equals("Naveed"))
+        if(tribeName.equals("Tribe1"))
         {
-            members.add(new NaveedHealer(nationName,tribeName, this.tribeLifePoints/ 5));
-            members.add(new NaveedWarrior(nationName,tribeName,this.tribeLifePoints / 5));
-            members.add(new NaveedWizard(nationName,tribeName,this.tribeLifePoints / 5));
-        }
-        if(nationName.equals("Toyberg"))
-        {
-            members.add(new ToybergHealer(nationName,tribeName, this.tribeLifePoints/ 5));
-            members.add(new ToybergWarrior(nationName,tribeName,this.tribeLifePoints / 5));
-            members.add(new ToybergWizard(nationName,tribeName,this.tribeLifePoints / 5));
-        }
-        if(nationName.equals("Smilons"))
-        {
-
-        }
-        if(nationName.equals("Perez"))
-        {
-
+            members.add(new NaveedHealer(nationName, tribeName, this.tribeLifePoints / 5));
+            members.add(new NaveedWarrior(nationName, tribeName, this.tribeLifePoints / 5));
+            members.add(new NaveedWizard(nationName, tribeName, this.tribeLifePoints / 5));
         }
     }
+
+    private void addPlayersToybergNation()
+    {
+
+    }
+
+    private void addPlayersPerezNation()
+    {
+
+    }
+
+    private void addPlayersSmilonsNation()
+    {
+
+    }
+
 
     public ArrayList<People> getLivingTribeMembers()
     {
