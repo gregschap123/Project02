@@ -22,12 +22,33 @@ public class Tribe
         tribeName = tribe;
         tribeLifePoints = lifePoints;
         for(int i = 0; i < 5; i++)
-            if(i % 2 == 0)
-                members.add(new SchaperWarrior(nationName, tribeName, tribeLifePoints / 5));
-            else
-                members.add(new SchaperWizard(nationName, tribeName, tribeLifePoints / 5));
+            addPlayersToNation(nationName);
         for(int i = 0; i < members.size(); i++)
             livingMembers.addAll(members);
+    }
+
+    private void addPlayersToNation(String nationName)
+    {
+        if(nationName.equals("Naveed"))
+        {
+            members.add(new NaveedHealer(nationName,tribeName, this.tribeLifePoints/ 5));
+            members.add(new NaveedWarrior(nationName,tribeName,this.tribeLifePoints / 5));
+            members.add(new NaveedWizard(nationName,tribeName,this.tribeLifePoints / 5));
+        }
+        if(nationName.equals("Toyberg"))
+        {
+            members.add(new ToybergHealer(nationName,tribeName, this.tribeLifePoints/ 5));
+            members.add(new ToybergWarrior(nationName,tribeName,this.tribeLifePoints / 5));
+            members.add(new ToybergWizard(nationName,tribeName,this.tribeLifePoints / 5));
+        }
+        if(nationName.equals("Smilons"))
+        {
+
+        }
+        if(nationName.equals("Perez"))
+        {
+
+        }
     }
 
     public ArrayList<People> getLivingTribeMembers()
