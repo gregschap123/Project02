@@ -14,14 +14,28 @@ public class Nation
     private ArrayList<People> population = new ArrayList<>();
     private ArrayList<People> livingPopulation = new ArrayList<>();
 
-
-    public Nation(String name, int lifePoints)
+    /**
+     *
+     * @param name  name of the nation
+     * @param lifePoints number of lifepoints allotted for this nation
+     * @param numWarriorsPerTribe Require 1 - the number of Warriors this Nation will have per tribe
+     * @param numWizardsPerTribe  Require 1 - the number of Wizards this Nation will have per tribe
+     * @param numHealersPerTribe  Require 1 - the number of Healers this Nation will have per tribe
+     * @throws IllegalArgumentException total number of Warriors + Wizards + Healers must equal 6
+     */
+    public Nation(String name, int lifePoints, int numWarriorsPerTribe,
+                  int numWizardsPerTribe, int numHealersPerTribe) throws IllegalArgumentException
     {
         nationName = name;
         nationLifePoints = lifePoints;
+        if(numWarriorsPerTribe < 1 || numWizardsPerTribe < 1 || numHealersPerTribe < 1 ||
+           numWarriorsPerTribe + numWizardsPerTribe + numHealersPerTribe != 6){
+            throw new IllegalArgumentException("There must be at least one of each type and no more than 6 total people.");
+        }
         for(int i = 1; i <=3 ; i++)
         {
-            this.tribes.add(new Tribe(nationName, "Tribe" + i, nationLifePoints / 3));
+            this.tribes.add(new Tribe(nationName, "Tribe" + i, nationLifePoints / 3,
+                    numWarriorsPerTribe, numWizardsPerTribe, numHealersPerTribe));
         }
         population.addAll(getNationPopulation());
         livingPopulation.addAll(population);
