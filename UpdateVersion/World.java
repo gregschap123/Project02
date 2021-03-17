@@ -6,7 +6,7 @@ import java.util.*;
 
 public class World
 {
-    private final int worldLifePoints = 4000;
+    private final int worldLifePoints = 8000;
     private final int numberOfRounds = 40;
     private ArrayList<Nation> allNations = new ArrayList<>();
     private ArrayList<Nation> allLivingNations = new ArrayList<>();
@@ -67,15 +67,10 @@ public class World
     public void createWorld()
     {
         // add Nations participating in the game to nations ArrayList.
-//        String[] nationNames = {"Smilons", "Naveed", "Perez", "Toyberg"};
-//        for(String name : nationNames){
-//            allNations.add(new Nation(name, worldLifePoints / nationNames.length));
-
-            allNations.add(new Nation("Toyberg", worldLifePoints / 4, 3, 2, 1));
-            allNations.add(new Nation("Smilons", worldLifePoints / 4, 2, 2, 2));
-            allNations.add(new Nation("Perez", worldLifePoints / 4, 2, 3, 1));
-            allNations.add(new Nation("Naveed", worldLifePoints / 4, 2, 2, 2));
-
+        String[] nationNames = {"Smilons", "Naveed", "Perez", "Toyberg"};
+        for(String name : nationNames){
+            allNations.add(new Nation(name, worldLifePoints / nationNames.length));
+        }
     }
 
 
