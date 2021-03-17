@@ -25,27 +25,23 @@ public class Tribe
         nationName = nation;
         tribeName = tribe;
         tribeLifePoints = lifePoints;
-        for(int i = 0; i < 5; i++) {
-            if (nationName.equals("Naveed"))
-            {
-                addNaveedPlayersToNaveedNation.add(members,nationName,tribeName,tribeLifePoints);
-                //tribePlayers();
-            }
-            if (nationName.equals("Toyberg"))
-            {
-                addNaveedPlayersToNaveedNation.add(members,nationName,tribeName,tribeLifePoints);
-                //tribePlayers();
-            }
-            if(nationName.equals("Perez"))
-            {
-                addNaveedPlayersToNaveedNation.add(members,nationName,tribeName,tribeLifePoints);
-                //tribePlayers();
-            }
-            if(nationName.equals("Smilons"))
-            {
-                addNaveedPlayersToNaveedNation.add(members,nationName,tribeName,tribeLifePoints);
-                tribePlayers();
-            }
+        if (nationName.equals("Naveed"))
+        {
+            addNaveedPlayersToNaveedNation.add(members,nationName,tribeName,tribeLifePoints);
+        }
+        if (nationName.equals("Toyberg"))
+        {
+            addNaveedPlayersToNaveedNation.add(members,nationName,tribeName,tribeLifePoints);
+            //tribePlayers();
+        }
+        if(nationName.equals("Perez"))
+        {
+            addNaveedPlayersToNaveedNation.add(members,nationName,tribeName,tribeLifePoints);
+            //tribePlayers();
+        }
+        if(nationName.equals("Smilons"))
+        {
+            addNaveedPlayersToNaveedNation.add(members,nationName,tribeName,tribeLifePoints);
         }
         for(int i = 0; i < members.size(); i++)
             livingMembers.addAll(members);
