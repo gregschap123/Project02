@@ -11,55 +11,75 @@ public class NaveedWarrior extends People
         myDescription = "\tNaveed Warrior";
     }
 
+    public int encounterStrategy2(int additonalLifepoints)
+    {
+        int lifepoints = 0;
+        // Checks if the current lifepoints are not over 100
+        if (this.getLifePoints() < 100)
+        {
+            lifepoints = this.getLifePoints() + additonalLifepoints ;
+        }
+        else
+        {
+            lifepoints = this.getLifePoints();
+        }
+        return lifepoints;
+    }
+
     @Override
     public int encounterStrategy(People otherPerson)
     {
         int lifepoints = 0;
+        // Both players are from the same nation
         if (this.getNation().equals(otherPerson.getNation()))
         {
-            if (this.getLifePoints() != 111)
+            // Can only heal if the other person is a healer
+            if (otherPerson.getType().equals(PeopleType.healer))
             {
-                // Getting healed
-                if (otherPerson.getType().equals(PeopleType.healer) && this.getLifePoints() < 45)
+                // Both are from same tribe.
+                if (otherPerson.getType().equals(this.getTribe()))
                 {
-                    lifepoints = this.getLifePoints() + 3;
+                    lifepoints = encounterStrategy2(10);
                 }
+                // Both are from different tribes.
                 else
                 {
-                    lifepoints = 0;
+                    lifepoints = encounterStrategy2(5);
                 }
             }
+            // Warrior cannot increase their lifepoints without a healer
             else
             {
-                lifepoints = 0;
+                lifepoints = this.getLifePoints();
             }
-
         }
-
+        // Both players are not from the same nation.
         else
         {
             // Getting attacked by a wizard
             if (otherPerson.getType().equals(PeopleType.wizard))
             {
-                lifepoints = this.getLifePoints() - 2;
+                lifepoints = this.getLifePoints() - 5;
             }
 
             // Getting attacked by a warrior
             if (otherPerson.getType().equals(PeopleType.warrior))
             {
                 // Running away
-               if (otherPerson.getLifePoints() > this.getLifePoints())
-               {
-                   lifepoints = -this.getLifePoints();
-               }
-               else
-               {
-                   lifepoints = this.getLifePoints() - 10;
-               }
+                if (otherPerson.getLifePoints() > this.getLifePoints())
+                {
+                    lifepoints = -this.getLifePoints();
+                }
+                // Fighting the warrior, but loses 10 lifepoints
+                else
+                {
+                    lifepoints = this.getLifePoints() - 10;
+                }
             }
+            // Fighting a healer, Does not do any damage
             else
             {
-                lifepoints = 0;
+                lifepoints = this.getLifePoints();
             }
         }
 

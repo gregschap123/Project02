@@ -25,48 +25,30 @@ public class Tribe
         nationName = nation;
         tribeName = tribe;
         tribeLifePoints = lifePoints;
-        if (nationName.equals("Naveed"))
-        {
-            addNaveedPlayersToNaveedNation.add(members,nationName,tribeName,tribeLifePoints);
-        }
-        if (nationName.equals("Toyberg"))
-        {
-            addNaveedPlayersToNaveedNation.add(members,nationName,tribeName,tribeLifePoints);
-            //tribePlayers();
-        }
-        if(nationName.equals("Perez"))
-        {
-            addNaveedPlayersToNaveedNation.add(members,nationName,tribeName,tribeLifePoints);
-            //tribePlayers();
-        }
-        if(nationName.equals("Smilons"))
-        {
-            addNaveedPlayersToNaveedNation.add(members,nationName,tribeName,tribeLifePoints);
-        }
+
+        addPlayerstoNation();
+
         for(int i = 0; i < members.size(); i++)
             livingMembers.addAll(members);
     }
 
-
-    private void tribePlayers()
+    private void addPlayerstoNation()
     {
-        if(tribeName.equals("Tribe1"))
+        if (this.nationName.equals("Naveed"))
         {
-            //members.add(new NaveedHealer(nationName, tribeName, this.tribeLifePoints / 6));
-            members.add(new SchaperWarrior(nationName, tribeName, this.tribeLifePoints / 6));
-            members.add(new SchaperWizard(nationName, tribeName, this.tribeLifePoints / 6));
+            addNaveedPlayersToNaveedNation.add(members,nationName,tribeName,tribeLifePoints);
         }
-        if(tribeName.equals("Tribe2"))
+        if (this.nationName.equals("Toyberg"))
         {
-            //members.add(new NaveedHealer(nationName, tribeName, this.tribeLifePoints / 6));
-            members.add(new SchaperWarrior(nationName, tribeName, this.tribeLifePoints / 6));
-            members.add(new SchaperWizard(nationName, tribeName, this.tribeLifePoints / 6));
+            addToyberPlayersToNaveedNation.add(members,nationName,tribeName,tribeLifePoints);
         }
-        if(tribeName.equals("Tribe3"))
+        if(this.nationName.equals("Perez"))
         {
-            //members.add(new NaveedHealer(nationName, tribeName, this.tribeLifePoints / 6));
-            members.add(new SchaperWarrior(nationName, tribeName, this.tribeLifePoints / 6));
-            members.add(new SchaperWizard(nationName, tribeName, this.tribeLifePoints / 6));
+            addPerezPlayersToNaveedNation.add(members,nationName,tribeName,tribeLifePoints);
+        }
+        if(this.nationName.equals("Smilons"))
+        {
+            addSmilonsPlayersToNaveedNation.add(members,nationName,tribeName,tribeLifePoints);
         }
     }
 
